@@ -1,0 +1,19 @@
+<div>
+    <label>github.com/</label>
+    <input id="username" [(ngModel)]="search.username">
+</div>
+<div *ngIf="loading">
+    <p>Loading...</p>
+</div>
+<div *ngIf="!loading">
+    <button (click)="search_click()">Search</button>
+
+    <p class="errorMessage">{{result.errorMessage}}</p>
+
+    <div *ngIf="result.login">
+        <h1>GitHub Profile Result</h1>
+        <img [src]="result.avatar_url" height="200" width="200">
+        <p>Login: {{result.login}}</p>
+        <p>Location: {{result.location}}</p>
+    </div>
+</div>
